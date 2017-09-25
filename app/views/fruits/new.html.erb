@@ -1,0 +1,20 @@
+<h1>New Fruit</h1>
+
+
+<%= form_with scope: :fruit, url: fruits_path, local: true do |form| %>
+  <p>
+    <%= form.label :id %><br>
+    <%= form.text_field :id %>
+  </p>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', fruits_path %>

@@ -1,0 +1,16 @@
+<h1>Listing fruits</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+ 
+  <% @fruits.each do |fruit| %>
+    <tr>
+      <td><%= fruit.name %></td>
+      <td><%= link_to 'Show', fruit_path(fruit) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New fruit', new_fruit_path %>
