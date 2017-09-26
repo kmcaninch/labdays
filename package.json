@@ -1,5 +1,7 @@
 {
   "name": "testapp",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "chartkick": "^2.2.4"
+  }
 }

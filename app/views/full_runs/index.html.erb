@@ -1,0 +1,28 @@
+<h1>Listing full runs</h1>
+ 
+<table> 
+  <% @full_runs.each do |full_run| %>
+    <tr>
+      <td><%= 'ID' %></td>
+      <td><%= 'Product' %></td>
+      <td><%= 'Enviroment' %></td>
+      <td><%= 'Timestamp' %></td>
+      <td><%= 'Duration' %></td>
+      <td><%= 'Example Count' %></td>
+      <td><%= 'Failure Count' %></td>
+      <td><%= 'Created At' %></td>
+      <td><%= 'Updated At' %></td>
+    </tr>
+    <tr>
+      <td><%= full_run.id %></td>
+      <td><%= full_run.application %></td>
+      <td><%= full_run.environment %></td>
+      <td><%= full_run.datetimestamp %></td>
+      <td><%= full_run.duration %></td>
+      <td><%= full_run.example_count %></td>
+      <td><%= full_run.failure_count %></td>
+      <td><%= full_run.created_at %></td>
+      <td><%= full_run.updated_at %></td>
+    </tr>
+  <% end %>
+</table>

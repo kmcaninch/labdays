@@ -10,18 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925185833) do
+ActiveRecord::Schema.define(version: 20170926143359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "fruits", id: :integer, default: nil, force: :cascade do |t|
-    t.string "name", limit: 40
+  create_table "full_runs", force: :cascade do |t|
+    t.text "application"
+    t.text "environment"
+    t.datetime "datetimestamp"
+    t.float "duration"
+    t.integer "example_count"
+    t.integer "failure_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "fruitstwo", force: :cascade do |t|
-    t.integer "idd"
-    t.string "name"
+  create_table "retry_runs", force: :cascade do |t|
+    t.text "application"
+    t.text "environment"
+    t.datetime "datetimestamp"
+    t.float "duration"
+    t.integer "example_count"
+    t.integer "failure_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shauntest", id: false, force: :cascade do |t|
+    t.integer "someid"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.text "application"
+    t.text "environment"
+    t.datetime "datetimestamp"
+    t.text "test_id"
+    t.text "file_path"
+    t.text "description"
+    t.text "status"
+    t.float "run_time"
+    t.text "exception"
+    t.text "run_type"
+    t.integer "run_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
