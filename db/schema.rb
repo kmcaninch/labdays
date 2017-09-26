@@ -37,6 +37,35 @@ ActiveRecord::Schema.define(version: 20170926143359) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "run_details", force: :cascade do |t|
+    t.text "application"
+    t.text "environment"
+    t.datetime "datetimestamp"
+    t.text "test_id"
+    t.text "file_path"
+    t.text "description"
+    t.text "status"
+    t.float "run_time"
+    t.text "exception"
+    t.bigserial "run_id", null: false
+    t.integer "attempt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "run_summaries", force: :cascade do |t|
+    t.text "application"
+    t.text "environment"
+    t.datetime "datetimestamp"
+    t.float "duration"
+    t.integer "example_count"
+    t.integer "failure_count"
+    t.boolean "full_run"
+    t.bigserial "parent_run_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shauntest", id: false, force: :cascade do |t|
     t.integer "someid"
   end
