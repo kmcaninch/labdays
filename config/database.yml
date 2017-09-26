@@ -6,9 +6,8 @@ default: &default
   database: Glados_development
   username: glados_master
   password: 'PrMjBaxIGl7PRmTEAzFu'
-  host: glados.cdn30frlb8j8.us-east-1.rds.amazonaws.com
+  host: 'glados.cdn30frlb8j8.us-east-1.rds.amazonaws.com'
   port: 5432
-  schema_search_path: "public"
 
 development:
   <<: *default
