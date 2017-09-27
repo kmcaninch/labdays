@@ -1,0 +1,2 @@
+class RunDetail < ApplicationRecord
+end

@@ -1,0 +1,43 @@
+<h1>Last Run Details (Ops Beta)</h1>
+<h2><%= @last_run_parent.updated_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M%p") %></h2>
+<p>
+ 
+<table> 
+    <tr>
+      <td><%= 'Duration' %></td>
+      <td><%= 'Example Count' %></td>
+      <td><%= 'Failure Count' %></td>
+      <td><%= 'Pass Rate' %></td>
+    </tr>
+
+    <tr>
+    <td><%= (@last_run_parent.duration/60).round(2) %> minutes</td>
+    <td><%= @total = @last_run_parent.example_count %></td>
+    <td><%= @fails = @last_run_parent.failure_count %></td>
+
+    <% @pass_threshold = 100 %>
+    <td><%= @pass_rate=(((@total-@fails.to_f)/(@total.to_f))*100).to_i %>%</td>
+    <td><%= @pass_rate>@pass_threshold ? image_tag("green_ball.png"):image_tag("red_ball.png") %></td>
+    </tr>
+</table>
+<p>
+<% if @pass_rate<@pass_threshold %>
+    <table>
+    <tr>
+      <td><%= 'Test ID' %></td>
+      <td><%= 'Description' %></td>
+      <td><%= 'Run Time' %></td>
+      <td><%= 'Exception' %></td>
+    </tr>
+        <% @run_details.each do |run_detail| %>
+    <tr>
+      <td><%= run_detail.test_id %></td>
+      <td><%= run_detail.description %></td>
+      <td><%= run_detail.run_time.round(2) %>s</td>
+      <td><%= run_detail.exception.truncate(300) %></td>
+    </tr>
+  <% end %>
+  <% else %>
+  <%= image_tag("banana.gif") %>
+  <% end %>
+</table>

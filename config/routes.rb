@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'environment/index'
+  get 'last_run/index'
   get 'run_summary/index'
   get 'welcome/index'
   resources :full_runs

@@ -1,0 +1,40 @@
+<h1>Environments</h1>
+
+<table>
+    <tr>
+    <td>
+    <% @total = @last_run_beta.example_count %>
+    <% @fails = @last_run_beta.failure_count %>
+    <% @pass_threshold = 100 %>
+    <% @pass_rate=(((@total-@fails.to_f)/(@total.to_f))*100).to_i %>
+    <%= @pass_rate>@pass_threshold ? image_tag("green_ball.png"):image_tag("red_ball.png") %>
+
+    </td>
+    <td>
+        <h3><%= link_to 'Beta', controller: 'last_run' %></h3>
+    </td>
+    <td> <%= @fails %> failures</td>
+    <td> <%= @last_run_beta.updated_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M%p") %> </td>
+    <td>took <%= (@last_run_beta.duration/60).round(2) %> minutes</td>
+    </tr>
+
+    <tr>
+    <td></td>
+    <td>
+        <h3>Staging</h3>
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+
+    <tr>
+    <td></td>
+    <td>
+        <h3>Yoda</h3>
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+</table>
