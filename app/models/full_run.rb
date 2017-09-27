@@ -1,2 +1,0 @@
-class FullRun < ApplicationRecord
-end

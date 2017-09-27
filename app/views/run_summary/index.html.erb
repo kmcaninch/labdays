@@ -1,0 +1,33 @@
+<h1>Listing Run Summaries</h1>
+ 
+<table> 
+    <tr>
+      <td><%= 'ID' %></td>
+      <td><%= 'Application' %></td>
+      <td><%= 'Enviroment' %></td>
+      <td><%= 'Duration' %></td>
+      <td><%= 'Example Count' %></td>
+      <td><%= 'Failure Count' %></td>
+      <td><%= 'Is Full Run?' %></td>
+      <td><%= 'Parent Run ID' %></td>
+
+    </tr>
+    <% @run_summaries.each do |run_summary| %>
+    <tr>
+      <td><%= run_summary.id %></td>
+      <td><%= run_summary.application %></td>
+      <td><%= run_summary.environment %></td>
+      <td><%= run_summary.duration %></td>
+      <td><%= run_summary.example_count %></td>
+      <td><%= run_summary.failure_count %></td>
+      <td><%= run_summary.is_full_run %></td>
+      <td><%= run_summary.parent_run_id %></td>
+
+      <% @pass_threshold = 0.2 %>
+      <td><%= @ratio=(run_summary.failure_count.to_f/run_summary.example_count.to_f) %></td>
+      <td><%= @ratio>@pass_threshold ? image_tag("green_ball.png", :alt => "Success!"):image_tag("red_ball.png", :alt => "Success!") %></td>
+
+      
+    </tr>
+  <% end %>
+</table>

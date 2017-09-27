@@ -1,0 +1,2 @@
+class RunSummary < ApplicationRecord
+end
