@@ -1,3 +1,5 @@
+<%= link_to 'Back to Enviroments', controller: 'environment' %>
+
 <h1>Last Run Details (Ops Beta)</h1>
 <h2><%= @last_run_parent.updated_at.in_time_zone("Central Time (US & Canada)").strftime("%m/%d/%y at %I:%M%p") %></h2>
 <p>
