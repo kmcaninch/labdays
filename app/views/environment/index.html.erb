@@ -8,7 +8,7 @@
     <% @fails = @last_run_beta.failure_count %>
     <% @pass_threshold = 100 %>
     <% @pass_rate=(((@total-@fails.to_f)/(@total.to_f))*100).to_i %>
-    <%= @pass_rate>@pass_threshold ? image_tag("green_ball.png"):image_tag("red_ball.png") %>
+    <%= @pass_rate>=@pass_threshold ? image_tag("green_ball.png"):image_tag("red_ball.png") %>
 
     </td>
     <td>
@@ -27,6 +27,7 @@
     <td></td>
     <td></td>
     <td></td>
+    
     </tr>
 
     <tr>
@@ -37,5 +38,6 @@
     <td></td>
     <td></td>
     <td></td>
+    
     </tr>
 </table>

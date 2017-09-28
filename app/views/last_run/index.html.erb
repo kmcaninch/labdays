@@ -19,7 +19,7 @@
 
     <% @pass_threshold = 100 %>
     <td><%= @pass_rate=(((@total-@fails.to_f)/(@total.to_f))*100).to_i %>%</td>
-    <td><%= @pass_rate>@pass_threshold ? image_tag("green_ball.png"):image_tag("red_ball.png") %></td>
+    <td><%= @pass_rate>=@pass_threshold ? image_tag("green_ball.png"):image_tag("red_ball.png") %></td>
     </tr>
 </table>
 <p>
@@ -44,3 +44,6 @@
   <%= image_tag("banana.gif") %>
   <% end %>
 </table>
+
+<p>
+<%= run_family_by_failures %>

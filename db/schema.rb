@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(version: 20170927184026) do
     t.integer "example_count"
     t.integer "failure_count"
     t.boolean "is_full_run"
-    t.bigint "parent_run_id"
+    t.bigint "full_run_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["full_run_id"], name: "index_run_summaries_on_full_run_id"
   end
 
 end
